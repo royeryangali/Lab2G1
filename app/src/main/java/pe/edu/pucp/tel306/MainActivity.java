@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setTitle("Registrate");
     }
 
     public void mandarParametros(View view){
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (espcam.isEmpty()){
             textViewEspecialidad.setError("Este campo no puede quedar vacio");
             dd = false;
-        }else if(!espcam.equals(""))
+        }
         //////////////////////////////////////////////////////////////
         if (ddd.isEmpty()){
             textViewDNI.setError("Este campo no puede quedar vacio");
