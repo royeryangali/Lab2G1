@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_panda_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tareas_pendientes"></activity>
+        <activity android:name=".tareas_pendientes" android:configChanges="uiMode"></activity>
         <activity android:name=".agregar_tarea" android:parentActivityName=".tareas_pendientes" />
         <activity android:name=".MainActivity">
             <intent-filter>
