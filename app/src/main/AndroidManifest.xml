@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_panda_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".tareas_pendientes"></activity>
+        <activity android:name=".agregar_tarea" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
