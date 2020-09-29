@@ -20,17 +20,21 @@ public class agregar_tarea extends AppCompatActivity {
         setTitle("Agregar Nueva Tarea");
         Button button = findViewById(R.id.buttonAgregarTarea);
         Intent intent = getIntent();
-        ArrayList <String> listaTareasRegistrada = intent.getStringArrayListExtra("conchetumare");
+        final ArrayList<String> listaTareasRegistrada = intent.getStringArrayListExtra("listaTareas");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView textView = findViewById(R.id.textViewCampo);
                 String textoDelCampo = textView.getText().toString();
-                if (textoDelCampo.isEmpty()){
-                    Toast.makeText(agregar_tarea.this,"Ingrese una tarea nueva",Toast.LENGTH_SHORT).show();
-                }
-                for (int i, i<.lenght){
-
+                Boolean flag = true;
+                if (textoDelCampo.isEmpty()) {
+                    Toast.makeText(agregar_tarea.this, "Ingrese una tarea nueva.", Toast.LENGTH_SHORT).show();
+                } else {
+                    for (String comprobar : listaTareasRegistrada) {
+                        if (comprobar.equalsIgnoreCase(textoDelCampo)){
+                            Toast.makeText(agregar_tarea.this, "Tarea ya registrada, ingrese una tarea nueva.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
             }
         });

@@ -7,10 +7,12 @@ public class Usuario implements Serializable {
     private int codigoPUCP;
     private String nombre;
     private String apellido;
-    private Especialidad especialidad;
+    private String especialidad;
     private int dni;
     private String clave;
     private ArrayList<String> listaTarea;
+    private String color;
+    private String mascota;
 
     public int getCodigoPUCP() {
         return codigoPUCP;
@@ -36,11 +38,11 @@ public class Usuario implements Serializable {
         this.apellido = apellido;
     }
 
-    public Especialidad getEspecialidad() {
+    public String getEspecialidad() {
         return especialidad;
     }
 
-    public void setEspecialidad(Especialidad especialidad) {
+    public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
@@ -66,5 +68,21 @@ public class Usuario implements Serializable {
 
     public void setListaTarea(ArrayList<String> listaTarea) {
         this.listaTarea = listaTarea;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getMascota() {
+        return mascota;
+    }
+
+    public void setMascota(String mascota) {
+        this.mascota = mascota;
     }
 }
