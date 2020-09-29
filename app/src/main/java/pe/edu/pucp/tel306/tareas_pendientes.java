@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,7 +33,15 @@ public class tareas_pendientes extends AppCompatActivity {
         textobienvenida.setText("Bienvenido " + usuario.getNombre() + " " + usuario.getApellido());
         TextView noHayTAreas = findViewById(R.id.textView4);
         LinearLayout layout = findViewById(R.id.linearLayoutCheck);
+        ImageButton imageButton = findViewById(R.id.imageButton2);
 
+        if(usuario.getEspecialidad().equalsIgnoreCase("Telecomunicaciones")){
+            imageButton.setImageResource(R.drawable.fibra);
+        }else if(usuario.getEspecialidad().equalsIgnoreCase("Electronica")){
+            imageButton.setImageResource(R.drawable.elec);
+        }else if(usuario.getEspecialidad().equalsIgnoreCase("mecatronica")){
+            imageButton.setImageResource(R.drawable.meca);
+        }
         if(usuario2.getListaTarea().isEmpty() || usuario2.getListaTarea() == null){
             noHayTAreas.setVisibility(View.VISIBLE);
         }else{
@@ -40,7 +49,7 @@ public class tareas_pendientes extends AppCompatActivity {
             int i = 1;
             for(String a : usuario2.getListaTarea()){
                 CheckBox cb = new CheckBox(this);
-                cb.setId(Integer.valueOf(i));
+                cb.setId(i);
                 cb.setText(a);
                 cb.setOnClickListener(ckListener);
                 layout.addView(cb);
