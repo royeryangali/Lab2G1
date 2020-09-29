@@ -3,6 +3,7 @@ package pe.edu.pucp.tel306;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import pe.edu.pucp.tel306.Entity.Usuario;
 
 public class agregar_tarea extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +24,13 @@ public class agregar_tarea extends AppCompatActivity {
         setTitle("Agregar Nueva Tarea");
 
         Intent intent = getIntent();
-        final Usuario usuario = (Usuario)intent.getSerializableExtra("usu2");
+        final Usuario usuario = (Usuario) intent.getSerializableExtra("usu2");
         ArrayList<String> listaTareasRegistrada = usuario.getListaTarea();
 
         TextView textView = findViewById(R.id.textViewCampo);
         String textoDelCampo = textView.getText().toString();
 
-        switch (usuario.getEspecialidad()){
+       /* switch (usuario.getEspecialidad()) {
             case "electronica":
                 agregar_tarea.this.setTheme(R.style.mdcThemeElectro);
                 break;
@@ -38,7 +40,7 @@ public class agregar_tarea extends AppCompatActivity {
                 agregar_tarea.this.setTheme(R.style.mdcThemeInf);
             default:
                 agregar_tarea.this.setTheme(R.style.porDefecto);
-        }
+        } */
 
         if (textoDelCampo.isEmpty()) {
             Toast.makeText(agregar_tarea.this, "Error, tarea nueva vacía.", Toast.LENGTH_SHORT).show();
@@ -54,8 +56,8 @@ public class agregar_tarea extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent1 = new Intent(agregar_tarea.this, tareas_pendientes.class);
-                            intent1.putExtra("usu2",usuario);
-                            setResult(RESULT_OK,intent1);
+                            intent1.putExtra("usu2", usuario);
+                            setResult(RESULT_OK, intent1);
                             finish();
                         }
                     });
