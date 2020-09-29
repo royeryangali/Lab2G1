@@ -14,6 +14,15 @@ public class Usuario implements Serializable {
     private String color;
     private String mascota;
 
+    public Usuario(int codigoPUCP, String nombre, String apellido, String especialidad, int dni, String clave) {
+        this.codigoPUCP = codigoPUCP;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.especialidad = especialidad;
+        this.dni = dni;
+        this.clave = clave;
+    }
+
     public int getCodigoPUCP() {
         return codigoPUCP;
     }
