@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         if (espcam.isEmpty()){
             textViewEspecialidad.setError("Este campo no puede quedar vacio");
             dd = false;
-        }
+        }else if(!espcam.equals(""))
         //////////////////////////////////////////////////////////////
         if (ddd.isEmpty()){
             textViewDNI.setError("Este campo no puede quedar vacio");
