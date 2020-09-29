@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import pe.edu.pucp.tel306.Entity.Usuario;
+
 public class agregar_tarea extends AppCompatActivity {
 
     @Override
@@ -20,7 +22,8 @@ public class agregar_tarea extends AppCompatActivity {
         setTitle("Agregar Nueva Tarea");
 
         Intent intent = getIntent();
-        final ArrayList<String> listaTareasRegistrada = intent.getStringArrayListExtra("lista");
+        final Usuario usuario = (Usuario)intent.getSerializableExtra("usu2");
+        ArrayList<String> listaTareasRegistrada = usuario.getListaTarea();
 
         TextView textView = findViewById(R.id.textViewCampo);
         String textoDelCampo = textView.getText().toString();
@@ -32,13 +35,15 @@ public class agregar_tarea extends AppCompatActivity {
                     Toast.makeText(agregar_tarea.this, "Tarea ya registrada, ingrese una tarea nueva.", Toast.LENGTH_SHORT).show();
                 } else {
                     listaTareasRegistrada.add(textoDelCampo);
+                    usuario.setListaTarea(listaTareasRegistrada);
                     Button button = findViewById(R.id.buttonAgregarTarea);
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Intent intent1 = new Intent(agregar_tarea.this, tareas_pendientes.class);
-                            intent1.putExtra("lista",listaTareasRegistrada);
-                            startActivity(intent1);
+                            intent1.putExtra("usu2",usuario);
+                            setResult(RESULT_OK,intent1);
+                            finish();
                         }
                     });
                 }
