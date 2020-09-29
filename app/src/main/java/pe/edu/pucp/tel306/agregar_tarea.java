@@ -18,25 +18,31 @@ public class agregar_tarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_tarea);
         setTitle("Agregar Nueva Tarea");
-        Button button = findViewById(R.id.buttonAgregarTarea);
+
         Intent intent = getIntent();
-        final ArrayList<String> listaTareasRegistrada = intent.getStringArrayListExtra("listaTareas");
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TextView textView = findViewById(R.id.textViewCampo);
-                String textoDelCampo = textView.getText().toString();
-                Boolean flag = true;
-                if (textoDelCampo.isEmpty()) {
-                    Toast.makeText(agregar_tarea.this, "Ingrese una tarea nueva.", Toast.LENGTH_SHORT).show();
+        final ArrayList<String> listaTareasRegistrada = intent.getStringArrayListExtra("lista");
+
+        TextView textView = findViewById(R.id.textViewCampo);
+        String textoDelCampo = textView.getText().toString();
+        if (textoDelCampo.isEmpty()) {
+            Toast.makeText(agregar_tarea.this, "Error, tarea nueva vacía.", Toast.LENGTH_SHORT).show();
+        } else {
+            for (String comprobar : listaTareasRegistrada) {
+                if (comprobar.equalsIgnoreCase(textoDelCampo)) {
+                    Toast.makeText(agregar_tarea.this, "Tarea ya registrada, ingrese una tarea nueva.", Toast.LENGTH_SHORT).show();
                 } else {
-                    for (String comprobar : listaTareasRegistrada) {
-                        if (comprobar.equalsIgnoreCase(textoDelCampo)){
-                            Toast.makeText(agregar_tarea.this, "Tarea ya registrada, ingrese una tarea nueva.", Toast.LENGTH_SHORT).show();
+                    listaTareasRegistrada.add(textoDelCampo);
+                    Button button = findViewById(R.id.buttonAgregarTarea);
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent1 = new Intent(agregar_tarea.this, tareas_pendientes.class);
+                            intent1.putExtra("lista",listaTareasRegistrada);
+                            startActivity(intent1);
                         }
-                    }
+                    });
                 }
             }
-        });
+        }
     }
 }
