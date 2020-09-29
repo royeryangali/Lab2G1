@@ -7,4 +7,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="porDefecto" parent="Theme.MaterialComponents.Light"></style>
+
+    <style name="mdcThemeInf" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#171EBA</item>
+    </style>
+
+    <style name="mdcThemeElectro" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#C81717</item>
+    </style>
+
+    <style name="mdcThemeTelecom" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#17C3BE</item>
+    </style>
 </resources>

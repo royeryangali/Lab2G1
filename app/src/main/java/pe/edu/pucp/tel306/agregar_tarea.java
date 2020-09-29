@@ -27,6 +27,19 @@ public class agregar_tarea extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.textViewCampo);
         String textoDelCampo = textView.getText().toString();
+
+        switch (usuario.getEspecialidad()){
+            case "electronica":
+                agregar_tarea.this.setTheme(R.style.mdcThemeElectro);
+                break;
+            case "telecomunicaciones":
+                agregar_tarea.this.setTheme(R.style.mdcThemeTelecom);
+            case "informatica":
+                agregar_tarea.this.setTheme(R.style.mdcThemeInf);
+            default:
+                agregar_tarea.this.setTheme(R.style.porDefecto);
+        }
+
         if (textoDelCampo.isEmpty()) {
             Toast.makeText(agregar_tarea.this, "Error, tarea nueva vacía.", Toast.LENGTH_SHORT).show();
         } else {
