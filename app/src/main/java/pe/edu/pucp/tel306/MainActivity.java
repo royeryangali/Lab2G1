@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("usu",new Usuario(codcam,nomcam,apecam,espcam,dnicam,clavecam));
         startActivity(intent);
 
-
     }
 
 
